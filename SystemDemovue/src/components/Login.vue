@@ -1,5 +1,5 @@
 <template>
-  <el-form el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="100px" label-position="left" class="login-container">
+  <el-form el-form :model="loginForm"  ref="loginForm" label-width="0px" label-position="left" class="login-container">
     <h3 class="login_title">系统登录</h3>
     <el-form-item prop="name">
       <el-input v-model="loginForm.uname" placeholder="用户名"></el-input>
@@ -8,7 +8,7 @@
       <el-input v-model="loginForm.upassword" placeholder="密码"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="login('loginForm')">登录</el-button>
+      <el-button type="primary" @click="login()">登录</el-button>
     </el-form-item>
   </el-form>
 
@@ -30,32 +30,15 @@ export default {
         uname: '',
         upassword: ''
       },
-      responseResult: [],
-      rules: {
-        name: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
-        ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
-        ]
-      }
+      responseResult: []
     }
   },
   methods: {
-    login (loginForm) {
-      //TODO 登录框验证逻辑未完善
-      this.$refs[loginForm].validate((valid) =>
-      {
-        if (valid) {
-          alert('submit!');
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
-      });
+    login () {
+
       //登录拦截
       var _this = this
-      console.log(this.$store.state)
+      console.log(this.$store.state)// 检查是否可以访问 Vuex store 对象
       this.$axios
         .post('/login', {
           uname: this.loginForm.uname,

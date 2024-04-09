@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import store from './store'
+import store from './store/index.js'
 
 
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
@@ -19,7 +19,7 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
-      if (store.state.user.username) {
+      if (store.state.user.uname) {
         next()
       } else {
         next({
@@ -27,6 +27,7 @@ router.beforeEach((to, from, next) => {
           query: {redirect: to.fullPath}
         })
       }
+      console.log(store)
     } else {
       next()
     }
