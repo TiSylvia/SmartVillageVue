@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      selectedMenuIndex: 0 // 初始选中的菜单项索引
+      selectedMenuIndex: "0" // 初始选中的菜单项索引
     };
   },
   methods: {

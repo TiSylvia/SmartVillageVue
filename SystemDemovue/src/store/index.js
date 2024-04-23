@@ -6,11 +6,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      uname: window.localStorage.getItem('user' || '[]') == null ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).uname
+      uid: '',
+      uname: '',
+      upassword: '',
+      photo: '',
+      roleselect: ''
     }
   },
   mutations: {
-    login (state, user) {
+    login(state, user) {
       console.log('login mutation triggered with user:', user);
       state.user = user;
       window.localStorage.setItem('user', JSON.stringify(user));
