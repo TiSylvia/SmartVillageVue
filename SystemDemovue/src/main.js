@@ -6,9 +6,11 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import store from './store/index.js'
+import * as echarts from 'echarts'
 
 
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
+Vue.prototype.$echarts = echarts
 
 // 设置反向代理，前端请求默认发送到 http://localhost:8081/smartvillage
 var axios = require('axios')

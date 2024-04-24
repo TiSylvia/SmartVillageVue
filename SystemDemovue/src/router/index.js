@@ -4,6 +4,7 @@ import HelloWorld from '../components/home/HelloWorld'
 import Users from '../components/home/Users'
 import Login from "../components/Login"
 import Home from '../components/Home'
+import Guide from '../components/home/guide'
 import OfficeIndex from "../components/office/OfficeIndex";
 import office_complaint_suggestion from "../components/office/suggestion/office_complaint_suggestion"
 import system_fault_report from "../components/office/suggestion/system_fault_report"
@@ -48,6 +49,14 @@ export default new Router({
           path: '/users',
           name: 'Users',
           component: Users,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/guide',
+          name: 'Guide',
+          component: Guide,
           meta: {
             requireAuth: true
           }

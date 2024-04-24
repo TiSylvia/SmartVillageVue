@@ -6,31 +6,31 @@
     active-text-color="red">
     <el-menu-item index="0">
       <i class="el-icon-menu"></i>
-      <span slot="title">全部</span>
+      <span slot="title">功能主页</span>
     </el-menu-item>
     <el-menu-item index="1">
       <i class="el-icon-menu"></i>
-      <span slot="title">户籍</span>
+      <span slot="title">户籍管理</span>
     </el-menu-item>
     <el-menu-item index="2">
       <i class="el-icon-menu"></i>
-      <span slot="title">房产</span>
+      <span slot="title">房屋管理</span>
     </el-menu-item>
     <el-menu-item index="3">
       <i class="el-icon-menu"></i>
-      <span slot="title">申领</span>
+      <span slot="title">申领管理</span>
     </el-menu-item>
     <el-menu-item index="4">
       <i class="el-icon-menu"></i>
-      <span slot="title">问卷</span>
+      <span slot="title">问卷管理</span>
     </el-menu-item>
-    <el-menu-item index="5">
+    <el-menu-item index="5" v-if="this.$store.state.user.roleselect !== '2'&&this.$store.state.user.roleselect !== '3'">
       <i class="el-icon-menu"></i>
-      <span slot="title">用户</span>
+      <span slot="title">用户管理</span>
     </el-menu-item>
     <el-menu-item index="6">
       <i class="el-icon-menu"></i>
-      <span slot="title">投诉</span>
+      <span slot="title">投诉管理</span>
     </el-menu-item>
   </el-menu>
 </template>
@@ -38,6 +38,7 @@
 <script>
 export default {
   name: 'SideMenu',
+  props: ['user'],
   methods: {
     handleSelect(index) {
       // 触发父组件的事件，通知父组件选中了哪个菜单项
@@ -58,4 +59,3 @@ export default {
   width: 150px;
 }
 </style>
-
